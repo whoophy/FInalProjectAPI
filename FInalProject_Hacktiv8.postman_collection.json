@@ -1,0 +1,727 @@
+{
+	"info": {
+		"_postman_id": "94e97c08-4c4c-4dc8-8c6a-977aa1af79fc",
+		"name": "FInalProject_Hacktiv8",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "RegisterUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "age",
+							"value": "23",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "default@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "default",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "default",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GenerateToken",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "default@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "default",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlZmF1bHRAZ21haWwuY29tIiwiaWQiOjF9.IF-TW64Pey3tGcCDpmwMDr4U6v0MCX7H-xWyzAsOnNg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "age",
+							"value": "23",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "default@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "default",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "default",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaWZrdXJuaWF3YW45NkBvdXRsb29rLmNvbSIsImlkIjoyM30.z_IAs3ahbSMHOCGrGj7nJJb8uesBjoJNVHELvfBJIqE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UploadPhoto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaWZrdXJuaWF3YW45NkBvdXRsb29rLmNvbSIsImlkIjoyMH0.p-2jWLYRFKxirrfwRk_RBMC1gvv3OZUruinbfEEnYtM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "aku anak sehat",
+							"type": "text"
+						},
+						{
+							"key": "caption",
+							"value": "tubuhku kuat",
+							"type": "text"
+						},
+						{
+							"key": "photo_url",
+							"value": "drive",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/photos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"photos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPhoto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlZmF1bHRAZ21haWwuY29tIiwiaWQiOjF9.IF-TW64Pey3tGcCDpmwMDr4U6v0MCX7H-xWyzAsOnNg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/photos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"photos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePhoto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlZmF1bHRAZ21haWwuY29tIiwiaWQiOjF9.IF-TW64Pey3tGcCDpmwMDr4U6v0MCX7H-xWyzAsOnNg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "message",
+							"value": "aku anak sehat tubuhku kuat",
+							"type": "text"
+						},
+						{
+							"key": "photoid",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "photo_url",
+							"value": "drive",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/photos/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"photos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdatePhoto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlZmF1bHRAZ21haWwuY29tIiwiaWQiOjF9.IF-TW64Pey3tGcCDpmwMDr4U6v0MCX7H-xWyzAsOnNg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "aku anak sehat",
+							"type": "text"
+						},
+						{
+							"key": "caption",
+							"value": "tubuhku kuat",
+							"type": "text"
+						},
+						{
+							"key": "photo_url",
+							"value": "drive",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/photos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"photos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostComment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlZmF1bHRAZ21haWwuY29tIiwiaWQiOjF9.IF-TW64Pey3tGcCDpmwMDr4U6v0MCX7H-xWyzAsOnNg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "message",
+							"value": "aku anak sehat 2",
+							"type": "text"
+						},
+						{
+							"key": "photoid",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "photo_url",
+							"value": "drive",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/comments/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"comments",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateComment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlZmF1bHRAZ21haWwuY29tIiwiaWQiOjF9.IF-TW64Pey3tGcCDpmwMDr4U6v0MCX7H-xWyzAsOnNg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "message",
+							"value": "aku anak sehat tubuhku kuat",
+							"type": "text"
+						},
+						{
+							"key": "photoid",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "photo_url",
+							"value": "drive",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/comments/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"comments",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteComment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlZmF1bHRAZ21haWwuY29tIiwiaWQiOjF9.IF-TW64Pey3tGcCDpmwMDr4U6v0MCX7H-xWyzAsOnNg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "message",
+							"value": "aku anak sehat tubuhku kuat",
+							"type": "text"
+						},
+						{
+							"key": "photoid",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "photo_url",
+							"value": "drive",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/comments/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"comments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetComment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlZmF1bHRAZ21haWwuY29tIiwiaWQiOjF9.IF-TW64Pey3tGcCDpmwMDr4U6v0MCX7H-xWyzAsOnNg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/comments/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"comments",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSocialMedia",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlZmF1bHRAZ21haWwuY29tIiwiaWQiOjF9.IF-TW64Pey3tGcCDpmwMDr4U6v0MCX7H-xWyzAsOnNg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/socialmedias/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"socialmedias",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConnectSocialMedia",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlZmF1bHRAZ21haWwuY29tIiwiaWQiOjF9.IF-TW64Pey3tGcCDpmwMDr4U6v0MCX7H-xWyzAsOnNg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "arif",
+							"type": "text"
+						},
+						{
+							"key": "social_media_url",
+							"value": "github.com",
+							"type": "text"
+						},
+						{
+							"key": "photo_url",
+							"value": "drive",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/socialmedias/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"socialmedias",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateSocialMedia",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlZmF1bHRAZ21haWwuY29tIiwiaWQiOjF9.IF-TW64Pey3tGcCDpmwMDr4U6v0MCX7H-xWyzAsOnNg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "arifkurniawan",
+							"type": "text"
+						},
+						{
+							"key": "social_media_url",
+							"value": "instagram.com",
+							"type": "text"
+						},
+						{
+							"key": "photo_url",
+							"value": "drive",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/socialmedias/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"socialmedias",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteSocialMedia",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlZmF1bHRAZ21haWwuY29tIiwiaWQiOjF9.IF-TW64Pey3tGcCDpmwMDr4U6v0MCX7H-xWyzAsOnNg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "message",
+							"value": "aku anak sehat tubuhku kuat",
+							"type": "text"
+						},
+						{
+							"key": "photoid",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "photo_url",
+							"value": "drive",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/socialmedias/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"socialmedias",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
