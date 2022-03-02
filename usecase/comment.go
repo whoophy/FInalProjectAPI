@@ -69,7 +69,7 @@ func GetComment(c *gin.Context) {
 		})
 		return
 	}
-	c.JSON(http.StatusCreated, Comment)
+	c.JSON(http.StatusOK, Comment)
 }
 
 func UpdateComment(c *gin.Context) {

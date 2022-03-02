@@ -10,6 +10,7 @@ import (
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
+	"gorm.io/gorm"
 )
 
 func ConnectSocialMedia(c *gin.Context) {
@@ -58,7 +59,9 @@ func GetSocialMedia(c *gin.Context) {
 	} else {
 		c.ShouldBind(&SocialMedia)
 	}
-	err := db.Debug().Preload("User").Find(&SocialMedia).Error
+	err := db.Debug().Preload("User", func(db *gorm.DB) *gorm.DB {
+		return db.Select("ID", "username", "email")
+	}).Find(&SocialMedia).Error
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"err":     "Bad Request",
@@ -66,7 +69,7 @@ func GetSocialMedia(c *gin.Context) {
 		})
 		return
 	}
-	c.JSON(http.StatusCreated, gin.H{
+	c.JSON(http.StatusOK, gin.H{
 		"social_media": SocialMedia,
 	})
 }

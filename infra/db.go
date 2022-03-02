@@ -43,8 +43,9 @@ func InitDB() {
 	}
 	user := os.Getenv("DBUSER")
 	pass := os.Getenv("PASSWORD")
+	dbname := os.Getenv("DBNAME")
 	psql := fmt.Sprintf("host=%s port=%d user=%s "+
-		"password=%s dbname=final_project sslmode=disable TimeZone=Asia/Shanghai", host, port, user, pass)
+		"password=%s dbname=%s sslmode=disable TimeZone=Asia/Shanghai", host, port, user, pass, dbname)
 	fmt.Println(psql)
 	db, err = gorm.Open(postgres.Open(psql), &gorm.Config{
 		Logger: newLogger,
