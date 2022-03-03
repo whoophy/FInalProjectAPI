@@ -106,7 +106,7 @@ func UpdatePhoto(c *gin.Context) {
 		"caption":    Photo.Caption,
 		"photo_url":  Photo.Photo_url,
 		"user_id":    Photo.UserID,
-		"updated_at": Photo.CreatedAt,
+		"updated_at": Photo.UpdatedAt,
 	})
 }
 
