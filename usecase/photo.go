@@ -67,7 +67,7 @@ func GetPhoto(c *gin.Context) {
 		})
 		return
 	}
-	c.JSON(http.StatusCreated, Photo)
+	c.JSON(http.StatusOK, Photo)
 }
 
 func UpdatePhoto(c *gin.Context) {
