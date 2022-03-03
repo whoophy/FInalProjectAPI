@@ -1,211 +1,202 @@
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:145
-[1.736ms] [rows:1] SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND table_type = 'BASE TABLE'
+2022/03/03 10:44:51 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:145
+[1.847ms] [rows:1] SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND table_type = 'BASE TABLE'
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:20
-[0.214ms] [rows:1] SELECT CURRENT_DATABASE()
+2022/03/03 10:44:51 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:20
+[0.186ms] [rows:1] SELECT CURRENT_DATABASE()
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:330
-[7.655ms] [rows:-] SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'final_project' AND table_schema = CURRENT_SCHEMA() AND table_name = 'users'
+2022/03/03 10:44:51 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:330
+[5.953ms] [rows:-] SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'final_project' AND table_schema = CURRENT_SCHEMA() AND table_name = 'users'
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:331
-[2.516ms] [rows:-] SELECT * FROM "users" LIMIT 1
+2022/03/03 10:44:51 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:331
+[1.966ms] [rows:-] SELECT * FROM "users" LIMIT 1
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:390
-[6.836ms] [rows:-] SELECT c.column_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'final_project' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'users'
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:390
+[6.807ms] [rows:-] SELECT c.column_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'final_project' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'users'
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:419
-[0.569ms] [rows:-] SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:419
+[0.439ms] [rows:-] SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
 		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.relfilenode AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
 		WHERE a.attnum > 0 -- hide internal columns
 		AND NOT a.attisdropped -- hide deleted columns
 		AND b.relname = 'users'
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[1.587ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[1.712ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[4.176ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[3.868ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[1.429ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'updated_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[1.313ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'updated_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[2.083ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'username') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[1.476ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'username') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[1.404ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'email') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[1.169ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'email') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[1.225ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'password') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[1.136ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'password') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[1.164ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'age') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[1.169ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'age') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:52
-[0.951ms] [rows:1] SELECT count(*) FROM pg_indexes WHERE tablename = 'users' AND indexname = 'idx_users_username' AND schemaname = CURRENT_SCHEMA()
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:52
+[1.177ms] [rows:1] SELECT count(*) FROM pg_indexes WHERE tablename = 'users' AND indexname = 'idx_users_username' AND schemaname = CURRENT_SCHEMA()
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:52
-[0.766ms] [rows:1] SELECT count(*) FROM pg_indexes WHERE tablename = 'users' AND indexname = 'idx_users_email' AND schemaname = CURRENT_SCHEMA()
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:52
+[0.879ms] [rows:1] SELECT count(*) FROM pg_indexes WHERE tablename = 'users' AND indexname = 'idx_users_email' AND schemaname = CURRENT_SCHEMA()
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:145
-[0.764ms] [rows:1] SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'photos' AND table_type = 'BASE TABLE'
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:145
+[0.755ms] [rows:1] SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'photos' AND table_type = 'BASE TABLE'
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:20
-[0.043ms] [rows:1] SELECT CURRENT_DATABASE()
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:20
+[0.084ms] [rows:1] SELECT CURRENT_DATABASE()
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:330
-[4.186ms] [rows:-] SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'final_project' AND table_schema = CURRENT_SCHEMA() AND table_name = 'photos'
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:330
+[4.159ms] [rows:-] SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'final_project' AND table_schema = CURRENT_SCHEMA() AND table_name = 'photos'
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:331
-[0.459ms] [rows:-] SELECT * FROM "photos" LIMIT 1
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:331
+[0.236ms] [rows:-] SELECT * FROM "photos" LIMIT 1
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:390
-[8.023ms] [rows:-] SELECT c.column_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'final_project' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'photos'
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:390
+[5.895ms] [rows:-] SELECT c.column_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'final_project' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'photos'
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:419
-[0.375ms] [rows:-] SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:419
+[0.354ms] [rows:-] SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
 		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.relfilenode AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
 		WHERE a.attnum > 0 -- hide internal columns
 		AND NOT a.attisdropped -- hide deleted columns
 		AND b.relname = 'photos'
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[1.222ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'photos' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'photos' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[1.164ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'photos' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'photos' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[1.265ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'photos' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'photos' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[1.427ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'photos' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'photos' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[1.118ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'photos' AND column_name = 'updated_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'photos' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[1.409ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'photos' AND column_name = 'updated_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'photos' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[1.152ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'photos' AND column_name = 'title') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'photos' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[1.235ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'photos' AND column_name = 'title') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'photos' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[1.130ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'photos' AND column_name = 'caption') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'photos' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[1.095ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'photos' AND column_name = 'caption') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'photos' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[0.157ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'photos' AND column_name = 'photo_url') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'photos' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[0.133ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'photos' AND column_name = 'photo_url') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'photos' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[0.135ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'photos' AND column_name = 'user_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'photos' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[0.122ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'photos' AND column_name = 'user_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'photos' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:316
-[0.721ms] [rows:1] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'photos' AND constraint_name = 'fk_users_photo'
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:316
+[0.768ms] [rows:1] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'photos' AND constraint_name = 'fk_users_photo'
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:145
-[0.400ms] [rows:1] SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND table_type = 'BASE TABLE'
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:145
+[0.326ms] [rows:1] SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND table_type = 'BASE TABLE'
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:20
-[0.053ms] [rows:1] SELECT CURRENT_DATABASE()
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:20
+[0.045ms] [rows:1] SELECT CURRENT_DATABASE()
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:330
-[3.762ms] [rows:-] SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'final_project' AND table_schema = CURRENT_SCHEMA() AND table_name = 'comments'
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:330
+[3.090ms] [rows:-] SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'final_project' AND table_schema = CURRENT_SCHEMA() AND table_name = 'comments'
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:331
-[0.479ms] [rows:-] SELECT * FROM "comments" LIMIT 1
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:331
+[0.249ms] [rows:-] SELECT * FROM "comments" LIMIT 1
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:390
-[4.644ms] [rows:-] SELECT c.column_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'final_project' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'comments'
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:390
+[4.555ms] [rows:-] SELECT c.column_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'final_project' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'comments'
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:419
-[0.211ms] [rows:-] SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:419
+[0.213ms] [rows:-] SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
 		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.relfilenode AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
 		WHERE a.attnum > 0 -- hide internal columns
 		AND NOT a.attisdropped -- hide deleted columns
 		AND b.relname = 'comments'
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[0.135ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[0.199ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[0.197ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[0.176ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[0.198ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND column_name = 'updated_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[0.147ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND column_name = 'updated_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[0.144ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND column_name = 'user_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[0.152ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND column_name = 'user_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[0.149ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND column_name = 'photo_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[0.111ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND column_name = 'photo_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[0.104ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND column_name = 'message') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[0.118ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND column_name = 'message') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'comments' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:316
-[0.725ms] [rows:1] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND constraint_name = 'fk_photos_comment'
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:316
+[0.744ms] [rows:1] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND constraint_name = 'fk_photos_comment'
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:316
-[0.629ms] [rows:1] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND constraint_name = 'fk_users_comment'
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:316
+[0.913ms] [rows:1] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'comments' AND constraint_name = 'fk_users_comment'
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:145
-[0.330ms] [rows:1] SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'social_media' AND table_type = 'BASE TABLE'
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:145
+[0.539ms] [rows:1] SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'social_media' AND table_type = 'BASE TABLE'
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:20
-[0.041ms] [rows:1] SELECT CURRENT_DATABASE()
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:20
+[0.097ms] [rows:1] SELECT CURRENT_DATABASE()
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:330
-[2.922ms] [rows:-] SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'final_project' AND table_schema = CURRENT_SCHEMA() AND table_name = 'social_media'
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:330
+[3.348ms] [rows:-] SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'final_project' AND table_schema = CURRENT_SCHEMA() AND table_name = 'social_media'
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:331
-[0.214ms] [rows:-] SELECT * FROM "social_media" LIMIT 1
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:331
+[0.244ms] [rows:-] SELECT * FROM "social_media" LIMIT 1
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:390
-[5.416ms] [rows:-] SELECT c.column_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'final_project' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'social_media'
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:390
+[4.267ms] [rows:-] SELECT c.column_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'final_project' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'social_media'
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:419
-[0.334ms] [rows:-] SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:419
+[0.206ms] [rows:-] SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
 		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.relfilenode AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
 		WHERE a.attnum > 0 -- hide internal columns
 		AND NOT a.attisdropped -- hide deleted columns
 		AND b.relname = 'social_media'
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[0.220ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'social_media' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'social_media' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[0.145ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'social_media' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'social_media' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[0.208ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'social_media' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'social_media' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[0.180ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'social_media' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'social_media' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[0.150ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'social_media' AND column_name = 'updated_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'social_media' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[0.139ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'social_media' AND column_name = 'updated_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'social_media' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[0.148ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'social_media' AND column_name = 'name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'social_media' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[0.121ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'social_media' AND column_name = 'name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'social_media' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[0.150ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'social_media' AND column_name = 'social_media_url') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'social_media' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[0.119ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'social_media' AND column_name = 'social_media_url') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'social_media' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
-[0.142ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'social_media' AND column_name = 'user_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'social_media' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:218
+[0.155ms] [rows:0] SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'social_media' AND column_name = 'user_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'social_media' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2022/03/03 09:17:53 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:316
-[0.688ms] [rows:1] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'social_media' AND constraint_name = 'fk_users_social_media'
+2022/03/03 10:44:52 /home/dell/Documents/go/pkg/mod/gorm.io/driver/postgres@v1.3.1/migrator.go:316
+[0.590ms] [rows:1] SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'social_media' AND constraint_name = 'fk_users_social_media'
 
-2022/03/03 09:17:57 /home/dell/Documents/go/FinalProject/usecase/socialMedia.go:132
-[10.701ms] [rows:1] DELETE FROM "social_media" WHERE id=4
+2022/03/03 10:44:53 /home/dell/Documents/go/FinalProject/usecase/socialMedia.go:103
+[0.108ms] [rows:1] SELECT * FROM "users" WHERE "users"."id" = 1
 
-2022/03/03 09:18:14 /home/dell/Documents/go/FinalProject/usecase/comment.go:64
-[0.261ms] [rows:2] SELECT "id","title","caption","photo_url","user_id" FROM "photos" WHERE "photos"."id" IN (2,1)
+2022/03/03 10:44:53 /home/dell/Documents/go/FinalProject/usecase/socialMedia.go:103
+[0.311ms] [rows:1] SELECT * FROM "social_media" WHERE "social_media"."id" = 2 ORDER BY "social_media"."id" LIMIT 1
 
-2022/03/03 09:18:14 /home/dell/Documents/go/FinalProject/usecase/comment.go:64
-[0.498ms] [rows:1] SELECT "id","username","email" FROM "users" WHERE "users"."id" = 1
+2022/03/03 10:44:59 /home/dell/Documents/go/FinalProject/usecase/socialMedia.go:103
+[0.141ms] [rows:1] SELECT * FROM "users" WHERE "users"."id" = 1
 
-2022/03/03 09:18:14 /home/dell/Documents/go/FinalProject/usecase/comment.go:64
-[1.267ms] [rows:2] SELECT * FROM "comments"
+2022/03/03 10:44:59 /home/dell/Documents/go/FinalProject/usecase/socialMedia.go:103
+[0.448ms] [rows:1] SELECT * FROM "social_media" WHERE "social_media"."id" = 2 ORDER BY "social_media"."id" LIMIT 1
 
-2022/03/03 09:18:20 /home/dell/Documents/go/FinalProject/usecase/socialMedia.go:64
-[0.242ms] [rows:1] SELECT "id","username","email" FROM "users" WHERE "users"."id" = 1
+2022/03/03 10:45:05 /home/dell/Documents/go/FinalProject/usecase/socialMedia.go:103
+[0.125ms] [rows:1] SELECT * FROM "users" WHERE "users"."id" = 1
 
-2022/03/03 09:18:20 /home/dell/Documents/go/FinalProject/usecase/socialMedia.go:64
-[0.841ms] [rows:2] SELECT * FROM "social_media"
-
-2022/03/03 09:18:32 /home/dell/Documents/go/FinalProject/usecase/socialMedia.go:132
-[1.042ms] [rows:1] DELETE FROM "social_media" WHERE id=3
-
-2022/03/03 09:18:37 /home/dell/Documents/go/FinalProject/usecase/socialMedia.go:64
-[0.157ms] [rows:1] SELECT "id","username","email" FROM "users" WHERE "users"."id" = 1
-
-2022/03/03 09:18:37 /home/dell/Documents/go/FinalProject/usecase/socialMedia.go:64
-[0.433ms] [rows:1] SELECT * FROM "social_media"
+2022/03/03 10:45:05 /home/dell/Documents/go/FinalProject/usecase/socialMedia.go:103
+[0.493ms] [rows:1] SELECT * FROM "social_media" WHERE "social_media"."id" = 2 ORDER BY "social_media"."id" LIMIT 1
