@@ -20,7 +20,7 @@
 						},
 						{
 							"key": "email",
-							"value": "default@gmail.com",
+							"value": "arifkurniawan@outlook.com",
 							"type": "text"
 						},
 						{
@@ -30,7 +30,7 @@
 						},
 						{
 							"key": "username",
-							"value": "default",
+							"value": "arifkurniawan96",
 							"type": "text"
 						}
 					]
@@ -60,7 +60,7 @@
 					"urlencoded": [
 						{
 							"key": "email",
-							"value": "default@gmail.com",
+							"value": "arifkurniawan@gmail.com",
 							"type": "text"
 						},
 						{
@@ -93,7 +93,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlZmF1bHRAZ21haWwuY29tIiwiaWQiOjF9.IF-TW64Pey3tGcCDpmwMDr4U6v0MCX7H-xWyzAsOnNg",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaWZrdXJuaWF3YW5AZ21haWwuY29tIiwiaWQiOjF9.6c9TwEl0lmmgQAGZHa2HTBfto9Q0SgJbt8vLfdD1f3c",
 							"type": "string"
 						}
 					]
@@ -111,7 +111,7 @@
 						},
 						{
 							"key": "email",
-							"value": "default@gmail.com",
+							"value": "arifkurniawan@gmail.com",
 							"type": "text"
 						},
 						{
@@ -122,7 +122,7 @@
 						},
 						{
 							"key": "username",
-							"value": "default",
+							"value": "arifkurniawan97",
 							"type": "text"
 						}
 					]
@@ -180,7 +180,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaWZrdXJuaWF3YW45NkBvdXRsb29rLmNvbSIsImlkIjoyMH0.p-2jWLYRFKxirrfwRk_RBMC1gvv3OZUruinbfEEnYtM",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaWZrdXJuaWF3YW5AZ21haWwuY29tIiwiaWQiOjF9.6c9TwEl0lmmgQAGZHa2HTBfto9Q0SgJbt8vLfdD1f3c",
 							"type": "string"
 						}
 					]
@@ -192,17 +192,17 @@
 					"urlencoded": [
 						{
 							"key": "title",
-							"value": "aku anak sehat",
+							"value": "test",
 							"type": "text"
 						},
 						{
-							"key": "caption",
-							"value": "tubuhku kuat",
+							"key": "Caption",
+							"value": "test",
 							"type": "text"
 						},
 						{
 							"key": "photo_url",
-							"value": "drive",
+							"value": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.lapa.ninja%2Fassets%2Fblog%2Fscribbbles.jpg&imgrefurl=https%3A%2F%2Fwww.lapa.ninja%2Fblog%2Ffree-illustrations-library-for-your-project%2F&tbnid=sy0SFg21PWOQ7M&vet=12ahUKEwiIoLeZnqf2AhUzyaACHSOyD6UQMygFegUIARDBAQ..i&docid=daaRhRtbd56J5M&w=1400&h=850&q=free%20image%20source&ved=2ahUKEwiIoLeZnqf2AhUzyaACHSOyD6UQMygFegUIARDBAQ",
 							"type": "text"
 						}
 					]
@@ -230,7 +230,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlZmF1bHRAZ21haWwuY29tIiwiaWQiOjF9.IF-TW64Pey3tGcCDpmwMDr4U6v0MCX7H-xWyzAsOnNg",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaWZrdXJuaWF3YW5AZ21haWwuY29tIiwiaWQiOjF9.6c9TwEl0lmmgQAGZHa2HTBfto9Q0SgJbt8vLfdD1f3c",
 							"type": "string"
 						}
 					]
@@ -260,35 +260,13 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlZmF1bHRAZ21haWwuY29tIiwiaWQiOjF9.IF-TW64Pey3tGcCDpmwMDr4U6v0MCX7H-xWyzAsOnNg",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaWZrdXJuaWF3YW5AZ21haWwuY29tIiwiaWQiOjF9.6c9TwEl0lmmgQAGZHa2HTBfto9Q0SgJbt8vLfdD1f3c",
 							"type": "string"
 						}
 					]
 				},
 				"method": "DELETE",
 				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "message",
-							"value": "aku anak sehat tubuhku kuat",
-							"type": "text"
-						},
-						{
-							"key": "photoid",
-							"value": "1",
-							"type": "text",
-							"disabled": true
-						},
-						{
-							"key": "photo_url",
-							"value": "drive",
-							"type": "text",
-							"disabled": true
-						}
-					]
-				},
 				"url": {
 					"raw": "http://localhost:8080/photos/2",
 					"protocol": "http",
@@ -324,17 +302,17 @@
 					"urlencoded": [
 						{
 							"key": "title",
-							"value": "aku anak sehat",
+							"value": "Foto kebersamaan",
 							"type": "text"
 						},
 						{
-							"key": "caption",
-							"value": "tubuhku kuat",
+							"key": "Caption",
+							"value": "#Maret",
 							"type": "text"
 						},
 						{
 							"key": "photo_url",
-							"value": "drive",
+							"value": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fassets.entrepreneur.com%2Fcontent%2F3x2%2F2000%2F20150225224437-computer.jpeg&imgrefurl=https%3A%2F%2Fwww.entrepreneur.com%2Farticle%2F248683&tbnid=i05QtViVEv6QkM&vet=12ahUKEwjbofWWgan2AhXU9DgGHcvuCkIQMygBegUIARC5AQ..i&docid=4Wsag8S0bdFTjM&w=2000&h=1334&q=free%20image%20source&ved=2ahUKEwjbofWWgan2AhXU9DgGHcvuCkIQMygBegUIARC5AQ",
 							"type": "text"
 						}
 					]
@@ -362,7 +340,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlZmF1bHRAZ21haWwuY29tIiwiaWQiOjF9.IF-TW64Pey3tGcCDpmwMDr4U6v0MCX7H-xWyzAsOnNg",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaWZrdXJuaWF3YW5AZ21haWwuY29tIiwiaWQiOjF9.6c9TwEl0lmmgQAGZHa2HTBfto9Q0SgJbt8vLfdD1f3c",
 							"type": "string"
 						}
 					]
@@ -374,11 +352,11 @@
 					"urlencoded": [
 						{
 							"key": "message",
-							"value": "aku anak sehat 2",
+							"value": "bagus",
 							"type": "text"
 						},
 						{
-							"key": "photoid",
+							"key": "PhotoID",
 							"value": "1",
 							"type": "text"
 						},
@@ -413,7 +391,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlZmF1bHRAZ21haWwuY29tIiwiaWQiOjF9.IF-TW64Pey3tGcCDpmwMDr4U6v0MCX7H-xWyzAsOnNg",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaWZrdXJuaWF3YW5AZ21haWwuY29tIiwiaWQiOjF9.6c9TwEl0lmmgQAGZHa2HTBfto9Q0SgJbt8vLfdD1f3c",
 							"type": "string"
 						}
 					]
@@ -425,7 +403,7 @@
 					"urlencoded": [
 						{
 							"key": "message",
-							"value": "aku anak sehat tubuhku kuat",
+							"value": "foto yang bagus",
 							"type": "text"
 						},
 						{
@@ -443,7 +421,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:8080/comments/7",
+					"raw": "http://localhost:8080/comments/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -451,7 +429,7 @@
 					"port": "8080",
 					"path": [
 						"comments",
-						"7"
+						"2"
 					]
 				}
 			},
@@ -465,7 +443,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlZmF1bHRAZ21haWwuY29tIiwiaWQiOjF9.IF-TW64Pey3tGcCDpmwMDr4U6v0MCX7H-xWyzAsOnNg",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaWZrdXJuaWF3YW5AZ21haWwuY29tIiwiaWQiOjF9.6c9TwEl0lmmgQAGZHa2HTBfto9Q0SgJbt8vLfdD1f3c",
 							"type": "string"
 						}
 					]
@@ -495,7 +473,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:8080/comments/1",
+					"raw": "http://localhost:8080/comments/8",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -503,7 +481,7 @@
 					"port": "8080",
 					"path": [
 						"comments",
-						"1"
+						"8"
 					]
 				}
 			},
@@ -517,7 +495,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlZmF1bHRAZ21haWwuY29tIiwiaWQiOjF9.IF-TW64Pey3tGcCDpmwMDr4U6v0MCX7H-xWyzAsOnNg",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaWZrdXJuaWF3YW5AZ21haWwuY29tIiwiaWQiOjF9.6c9TwEl0lmmgQAGZHa2HTBfto9Q0SgJbt8vLfdD1f3c",
 							"type": "string"
 						}
 					]
@@ -547,7 +525,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlZmF1bHRAZ21haWwuY29tIiwiaWQiOjF9.IF-TW64Pey3tGcCDpmwMDr4U6v0MCX7H-xWyzAsOnNg",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaWZrdXJuaWF3YW5AZ21haWwuY29tIiwiaWQiOjF9.6c9TwEl0lmmgQAGZHa2HTBfto9Q0SgJbt8vLfdD1f3c",
 							"type": "string"
 						}
 					]
@@ -628,7 +606,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlZmF1bHRAZ21haWwuY29tIiwiaWQiOjF9.IF-TW64Pey3tGcCDpmwMDr4U6v0MCX7H-xWyzAsOnNg",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaWZrdXJuaWF3YW5AZ21haWwuY29tIiwiaWQiOjF9.6c9TwEl0lmmgQAGZHa2HTBfto9Q0SgJbt8vLfdD1f3c",
 							"type": "string"
 						}
 					]
@@ -645,7 +623,7 @@
 						},
 						{
 							"key": "social_media_url",
-							"value": "instagram.com",
+							"value": "github.com",
 							"type": "text"
 						},
 						{
@@ -679,7 +657,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlZmF1bHRAZ21haWwuY29tIiwiaWQiOjF9.IF-TW64Pey3tGcCDpmwMDr4U6v0MCX7H-xWyzAsOnNg",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyaWZrdXJuaWF3YW5AZ21haWwuY29tIiwiaWQiOjF9.6c9TwEl0lmmgQAGZHa2HTBfto9Q0SgJbt8vLfdD1f3c",
 							"type": "string"
 						}
 					]
@@ -709,7 +687,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:8080/socialmedias/",
+					"raw": "http://localhost:8080/socialmedias/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -717,7 +695,7 @@
 					"port": "8080",
 					"path": [
 						"socialmedias",
-						""
+						"3"
 					]
 				}
 			},

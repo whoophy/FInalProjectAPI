@@ -91,12 +91,12 @@ func UpdateUser(c *gin.Context) {
 	} else {
 		c.ShouldBind(&User)
 	}
-
+	fmt.Println(userId)
 	err := db.Model(&User).Where("id=?", userId).Updates(entity.User{
 		Email:    User.Email,
 		Username: User.Username,
 	}).Error
-	err = db.Debug().Find(&User).Error
+	err = db.Debug().First(&User, userId).Error
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"err":     "Bad Request",
@@ -126,7 +126,6 @@ func DeleteUser(c *gin.Context) {
 	} else {
 		c.ShouldBind(&User)
 	}
-	fmt.Println("user id adalah ", userId)
 	err := db.Debug().Where("id=?", userId).Delete(&User).Error
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{

@@ -100,7 +100,7 @@ func UpdateSocialMedia(c *gin.Context) {
 		})
 		return
 	}
-	if err := db.Debug().Preload("User").Find(&SocialMedia).Where("id=?", socialmediaId).Error; err != nil {
+	if err := db.Debug().Preload("User").First(&SocialMedia, socialmediaId).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"err":     "Bad Request",
 			"message": err.Error(),
