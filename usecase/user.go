@@ -2,9 +2,8 @@ package usecase
 
 import (
 	"finalproject/entity"
-	"finalproject/infra"
+	"finalproject/repo"
 	"finalproject/utils/helper"
-	"fmt"
 	"net/http"
 
 	"github.com/dgrijalva/jwt-go"
@@ -16,17 +15,16 @@ var (
 )
 
 func UserRegister(c *gin.Context) {
-	db := infra.GetDatabase()
 	contentType := helper.GetContentType(c)
-	_, _ = db, contentType
+	_ = contentType
 	User := entity.User{}
-
+	var err error
 	if contentType == appJSON {
 		c.ShouldBindJSON(&User)
 	} else {
 		c.ShouldBind(&User)
 	}
-	err := db.Debug().Create(&User).Error
+	User, err = repo.CreateUserRepo(User)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error":   "Bad Request",
@@ -43,18 +41,18 @@ func UserRegister(c *gin.Context) {
 }
 
 func UserLogin(c *gin.Context) {
-	db := infra.GetDatabase()
-	contenType := helper.GetContentType(c)
-	_, _ = db, contenType
+	contentType := helper.GetContentType(c)
+	_ = contentType
 	User := entity.User{}
+	var err error
 	password := ""
-	if contenType == appJSON {
+	if contentType == appJSON {
 		c.ShouldBindJSON(&User)
 	} else {
 		c.ShouldBind(&User)
 	}
 	password = User.Password
-	err := db.Debug().Where("email = ?", User.Email).Take(&User).Error
+	User, err = repo.UserLoginRepo(User)
 	if err != nil {
 		c.JSON(http.StatusUnauthorized, gin.H{
 			"error":   "Unauthorized",
@@ -62,8 +60,6 @@ func UserLogin(c *gin.Context) {
 		})
 		return
 	}
-	fmt.Println(User.Password)
-	fmt.Println(password)
 	comparePass := helper.ComparePass([]byte(User.Password), []byte(password))
 	if !comparePass {
 		c.JSON(http.StatusUnauthorized, gin.H{
@@ -79,24 +75,19 @@ func UserLogin(c *gin.Context) {
 }
 
 func UpdateUser(c *gin.Context) {
-	db := infra.GetDatabase()
 	userData := c.MustGet("userData").(jwt.MapClaims)
-	ContentType := helper.GetContentType(c)
+	contentType := helper.GetContentType(c)
+	_ = contentType
 	User := entity.User{}
-
+	var err error
 	userId := uint(userData["id"].(float64))
 
-	if ContentType == appJSON {
+	if contentType == appJSON {
 		c.ShouldBindJSON(&User)
 	} else {
 		c.ShouldBind(&User)
 	}
-	fmt.Println(userId)
-	err := db.Model(&User).Where("id=?", userId).Updates(entity.User{
-		Email:    User.Email,
-		Username: User.Username,
-	}).Error
-	err = db.Debug().First(&User, userId).Error
+	User, err = repo.UpdateUserRepo(User, userId)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"err":     "Bad Request",
@@ -114,19 +105,19 @@ func UpdateUser(c *gin.Context) {
 }
 
 func DeleteUser(c *gin.Context) {
-	db := infra.GetDatabase()
 	userData := c.MustGet("userData").(jwt.MapClaims)
-	ContentType := helper.GetContentType(c)
+	contentType := helper.GetContentType(c)
+	_ = contentType
 	User := entity.User{}
-
+	var err error
 	userId := uint(userData["id"].(float64))
 
-	if ContentType == appJSON {
+	if contentType == appJSON {
 		c.ShouldBindJSON(&User)
 	} else {
 		c.ShouldBind(&User)
 	}
-	err := db.Debug().Where("id=?", userId).Delete(&User).Error
+	User, err = repo.DeleteUserRepo(User, userId)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"err":     "Bad Request",
