@@ -2,7 +2,7 @@ package usecase
 
 import (
 	"finalproject/entity"
-	"finalproject/infra"
+	"finalproject/repo"
 	"finalproject/utils/helper"
 	"fmt"
 	"net/http"
@@ -10,11 +10,10 @@ import (
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
-	"gorm.io/gorm"
 )
 
 func ConnectSocialMedia(c *gin.Context) {
-	db := infra.GetDatabase()
+	var err error
 	userData := c.MustGet("userData").(jwt.MapClaims)
 	contenType := helper.GetContentType(c)
 
@@ -28,7 +27,7 @@ func ConnectSocialMedia(c *gin.Context) {
 		c.ShouldBind(&SocialMedia)
 	}
 	SocialMedia.UserID = userID
-	err := db.Debug().Create(&SocialMedia).Error
+	SocialMedia, err = repo.CreateSocialMediaRepo(SocialMedia)
 
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
@@ -47,7 +46,7 @@ func ConnectSocialMedia(c *gin.Context) {
 }
 
 func GetSocialMedia(c *gin.Context) {
-	db := infra.GetDatabase()
+	var err error
 	userData := c.MustGet("userData").(jwt.MapClaims)
 	contenType := helper.GetContentType(c)
 
@@ -59,9 +58,7 @@ func GetSocialMedia(c *gin.Context) {
 	} else {
 		c.ShouldBind(&SocialMedia)
 	}
-	err := db.Debug().Preload("User", func(db *gorm.DB) *gorm.DB {
-		return db.Select("ID", "username", "email")
-	}).Find(&SocialMedia).Error
+	SocialMedia, err = repo.GetSocialMediaRepo(SocialMedia)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"err":     "Bad Request",
@@ -75,7 +72,7 @@ func GetSocialMedia(c *gin.Context) {
 }
 
 func UpdateSocialMedia(c *gin.Context) {
-	db := infra.GetDatabase()
+	var err error
 	userData := c.MustGet("userData").(jwt.MapClaims)
 	ContentType := helper.GetContentType(c)
 	SocialMedia := entity.SocialMedia{}
@@ -89,18 +86,8 @@ func UpdateSocialMedia(c *gin.Context) {
 		c.ShouldBind(&SocialMedia)
 	}
 
-	err := db.Model(&SocialMedia).Where("id=?", socialmediaId).Updates(entity.SocialMedia{
-		Name:           SocialMedia.Name,
-		SocialMediaUrl: SocialMedia.SocialMediaUrl,
-	}).Error
+	SocialMedia, err = repo.UpdateSocialMediaRepo(SocialMedia, uint(socialmediaId))
 	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"err":     "Bad Request",
-			"message": err.Error(),
-		})
-		return
-	}
-	if err := db.Debug().Preload("User").First(&SocialMedia, socialmediaId).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"err":     "Bad Request",
 			"message": err.Error(),
@@ -117,7 +104,7 @@ func UpdateSocialMedia(c *gin.Context) {
 }
 
 func DeleteSocialMedia(c *gin.Context) {
-	db := infra.GetDatabase()
+	var err error
 	_ = c.MustGet("userData").(jwt.MapClaims)
 	ContentType := helper.GetContentType(c)
 	SocialMedia := entity.SocialMedia{}
@@ -129,7 +116,7 @@ func DeleteSocialMedia(c *gin.Context) {
 	} else {
 		c.ShouldBind(&SocialMedia)
 	}
-	err := db.Debug().Where("id=?", socialmediaId).Delete(&SocialMedia).Error
+	SocialMedia, err = repo.DeleteSocialMediaRepo(SocialMedia, uint(socialmediaId))
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"err":     "Bad Request",
