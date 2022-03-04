@@ -2,18 +2,17 @@ package usecase
 
 import (
 	"finalproject/entity"
-	"finalproject/infra"
+	"finalproject/repo"
 	"finalproject/utils/helper"
 	"net/http"
 	"strconv"
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
-	"gorm.io/gorm"
 )
 
 func UploadPhotos(c *gin.Context) {
-	db := infra.GetDatabase()
+	var err error
 	userData := c.MustGet("userData").(jwt.MapClaims)
 	contenType := helper.GetContentType(c)
 
@@ -26,7 +25,7 @@ func UploadPhotos(c *gin.Context) {
 		c.ShouldBind(&Photo)
 	}
 	Photo.UserID = userID
-	err := db.Debug().Create(&Photo).Error
+	Photo, err = repo.CreatePhotoRepo(Photo)
 
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
@@ -46,7 +45,7 @@ func UploadPhotos(c *gin.Context) {
 }
 
 func GetPhoto(c *gin.Context) {
-	db := infra.GetDatabase()
+	var err error
 	userData := c.MustGet("userData").(jwt.MapClaims)
 	contenType := helper.GetContentType(c)
 	Photo := []entity.Photo{}
@@ -57,9 +56,7 @@ func GetPhoto(c *gin.Context) {
 	} else {
 		c.ShouldBind(&Photo)
 	}
-	err := db.Debug().Preload("User", func(db *gorm.DB) *gorm.DB {
-		return db.Select("ID", "username", "email")
-	}).Find(&Photo).Error
+	Photo, err = repo.GetPhotoRepo(Photo)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"err":     "Bad Request",
@@ -71,7 +68,7 @@ func GetPhoto(c *gin.Context) {
 }
 
 func UpdatePhoto(c *gin.Context) {
-	db := infra.GetDatabase()
+	var err error
 	userData := c.MustGet("userData").(jwt.MapClaims)
 	ContentType := helper.GetContentType(c)
 	Photo := entity.Photo{}
@@ -87,11 +84,7 @@ func UpdatePhoto(c *gin.Context) {
 	Photo.UserID = userId
 	Photo.ID = uint(photoId)
 
-	err := db.Model(&Photo).Where("id=?", photoId).Updates(entity.Photo{
-		Title:     Photo.Title,
-		Caption:   Photo.Caption,
-		Photo_url: Photo.Photo_url,
-	}).Error
+	Photo, err = repo.UpdatePhotoRepo(Photo, uint(photoId))
 
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
@@ -111,7 +104,7 @@ func UpdatePhoto(c *gin.Context) {
 }
 
 func DeletePhoto(c *gin.Context) {
-	db := infra.GetDatabase()
+	var err error
 	_ = c.MustGet("userData").(jwt.MapClaims)
 	ContentType := helper.GetContentType(c)
 	Photo := entity.Photo{}
@@ -123,7 +116,7 @@ func DeletePhoto(c *gin.Context) {
 	} else {
 		c.ShouldBind(&Photo)
 	}
-	err := db.Debug().Where("id=?", photoId).Delete(&Photo).Error
+	Photo, err = repo.DeletePhotoRepo(Photo, uint(photoId))
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"err":     "Bad Request",
